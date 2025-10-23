@@ -1,8 +1,11 @@
 let bodyParser = require('body-parser');
 let mongoose = require('mongoose');
+require('dotenv').config();
+const mongoPassword = process.env.MONGO_PASSWORD;
+const mongoUsername = process.env.MONGO_USERNAME;
 
 // Connect to the database
-mongoose.connect('mongodb+srv://test:test@todo.fhgnimk.mongodb.net/');
+mongoose.connect(`mongodb+srv://${mongoUsername}:${mongoPassword}@todo.fhgnimk.mongodb.net/`);
 
 // Create a schema - this is a blueprint 
 let todoSchema = new mongoose.Schema({
